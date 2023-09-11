@@ -90,6 +90,7 @@ namespace VideoDa.AccesoADatos.Tests
             empleado.Top_Aux = 10;
             var resultEmpleado = await EmpleadoDAL.BuscarAsync(empleado);
             Assert.AreNotEqual(0, resultEmpleado.Count);
+
         }
     }
 }
