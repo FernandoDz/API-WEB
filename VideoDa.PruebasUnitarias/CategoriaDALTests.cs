@@ -5,46 +5,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoDa.EntidadesDeNegocio;
 
 namespace VideoDa.AccesoADatos.Tests
 {
     [TestClass()]
     public class CategoriaDALTests
     {
+        private static Categoria categoriaInicial = new Categoria { Id = 2 };
+
         [TestMethod()]
-        public void CrearAsyncTest()
+        public async Task T1CrearAsyncTest()
         {
-            Assert.Fail();
+            var categoria = new Categoria();
+            categoria.Nombre = "Producto";
+            int result = await CategoriaDAL.CrearAsync(categoria);
+            Assert.AreNotEqual(0, result);
+            categoriaInicial.Id = categoria.Id;
         }
 
         [TestMethod()]
-        public void ModificarAsyncTest()
+        public async Task T2ModificarAsyncTestAsync()
         {
-            Assert.Fail();
+            var categoria = new Categoria();
+            categoria.Id = categoriaInicial.Id;
+            categoria.Nombre = "Prod";
+            int result = await CategoriaDAL.ModificarAsync(categoria);
+            Assert.AreNotEqual(0, result);
         }
 
         [TestMethod()]
-        public void EliminarAsyncTest()
+        public async Task T3EliminarAsyncTestAsync()
         {
-            Assert.Fail();
+            var categoria = new Categoria();
+            categoria.Id = categoriaInicial.Id;
+            int result = await CategoriaDAL.EliminarAsync(categoria);
+            Assert.AreNotEqual(0, result);
         }
 
         [TestMethod()]
-        public void ObtenerPorIdAsyncTest()
+        public async Task T4ObtenerPorIdAsyncTest()
         {
-            Assert.Fail();
+            var categoria = new Categoria();
+            categoria.Id = categoriaInicial.Id;
+            var resultCategoria = await CategoriaDAL.ObtenerPorIdAsync(categoria);
+            Assert.AreEqual(categoria.Id, resultCategoria.Id);
         }
 
         [TestMethod()]
-        public void ObtenerTodosAsyncTest()
+        public async Task T5ObtenerTodosAsyncTest()
         {
-            Assert.Fail();
+            var resultCategoria = await CategoriaDAL.ObtenerTodosAsync();
+            Assert.AreNotEqual(0, resultCategoria.Count);
         }
 
         [TestMethod()]
-        public void BuscarAsyncTest()
+        public async Task T6BuscarAsyncTestAsync()
         {
-            Assert.Fail();
+            var categoria = new Categoria();
+            categoria.Nombre = "a";
+            categoria.Top_Aux = 10;
+            var resultCategoria = await CategoriaDAL.BuscarAsync(categoria);
+            Assert.AreNotEqual(0, resultCategoria.Count);
         }
     }
 }
