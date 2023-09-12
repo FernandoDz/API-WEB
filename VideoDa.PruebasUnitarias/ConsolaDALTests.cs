@@ -5,46 +5,83 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoDa.EntidadesDeNegocio;
 
 namespace VideoDa.AccesoADatos.Tests
 {
     [TestClass()]
     public class ConsolaDALTests
     {
+        private static Consola consolaInicial = new Consola { Id = 2 };
         [TestMethod()]
-        public void CrearAsyncTest()
+        public async Task T1CrearAsyncTest()
         {
-            Assert.Fail();
+            var consola = new Consola();
+            consola.Id = consolaInicial.Id;
+            consola.Nombre = "PlayStation 4";
+            consola.Descripcion = "Consola de videojuegos para disfrutar con tu familia";
+            consola.Serie = "2001";
+            consola.Imagen = "ps4.png";
+            consola.Fabricante = "Sony";
+            consola.AñodeLanzamiento = "2014";
+            int result = await ConsolaDAL.CrearAsync(consola);
+            Assert.AreNotEqual(0, result);
+            consolaInicial.Id = consola.Id;
         }
 
         [TestMethod()]
-        public void ModificarAsyncTest()
+        public async Task T2ModificarAsyncTest()
         {
-            Assert.Fail();
+            var consola = new Consola();
+            consola.Id = consolaInicial.Id;
+            consola.Nombre = "PlayStation 4";
+            consola.Descripcion = "Consola de videojuegos para disfrutar con tu familia";
+            consola.Serie = "2001";
+            consola.Imagen = "ps4.png";
+            consola.Fabricante = "Sony";
+            consola.AñodeLanzamiento = "2014";
+            int result = await ConsolaDAL.ModificarAsync(consola);
+            Assert.AreNotEqual(0, result);
+        }
+        [TestMethod()]
+        public async Task T3EliminarAsyncTest()
+        {
+            var consola = new Consola();
+            consola.Id = consolaInicial.Id;
+            int result = await ConsolaDAL.EliminarAsync(consola);
+            Assert.AreNotEqual(0, result);
+        }
+        [TestMethod()]
+        public async Task T4ObtenerPorIdAsyncTest()
+        {
+            var consola = new Consola();
+            consola.Id = consolaInicial.Id;
+            var resultconsola = await ConsolaDAL.ObtenerPorIdAsync(consola);
+            Assert.AreEqual(consola.Id, resultconsola.Id);
         }
 
         [TestMethod()]
-        public void EliminarAsyncTest()
+        public async Task T5ObtenerTodosAsyncTest()
         {
-            Assert.Fail();
+            var resultconsola = await ConsolaDAL.ObtenerTodosAsync();
+            Assert.AreNotEqual(0, resultconsola.Count);
         }
 
         [TestMethod()]
-        public void ObtenerPorIdAsyncTest()
+        public async Task T6BuscarAsyncTest()
         {
-            Assert.Fail();
-        }
+            var consola = new Consola();
+            consola.Id = consolaInicial.Id;
+            consola.Nombre = "A";
+            consola.Descripcion = "a";
+            consola.Serie = "a";
+            consola.Imagen = "a";
+            consola.Fabricante = "a";
+            consola.AñodeLanzamiento = "a";
+            consola.Top_Aux = 10;
+            var resultconsola = await ConsolaDAL.BuscarAsync(consola);
+            Assert.AreNotEqual(0, resultconsola.Count);
 
-        [TestMethod()]
-        public void ObtenerTodosAsyncTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void BuscarAsyncTest()
-        {
-            Assert.Fail();
         }
     }
 }
