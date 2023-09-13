@@ -22,7 +22,7 @@ namespace VideoDa.AccesoADatos
         public DbSet<Usuario> Usuarios { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Data source = DESKTOP-5D189V7;
+            options.UseSqlServer(@"Data source = TRAMPA-3F1;
                    Initial Catalog = VideoDa;
                   Integrated Security =True");
         }
