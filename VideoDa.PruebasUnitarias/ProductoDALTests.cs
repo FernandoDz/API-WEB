@@ -81,6 +81,7 @@ namespace VideoDa.AccesoADatos.Tests
             producto.Cantidad = "a";
             producto.Precio = "a";
             producto.Imagen = "a";
+            producto.Top_Aux = 10;
             var resultProducto = await ProductoDAL.BuscarAsync(producto);
             Assert.AreNotEqual(0, resultProducto.Count);
         }
