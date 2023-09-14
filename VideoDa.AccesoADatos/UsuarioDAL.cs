@@ -165,7 +165,7 @@ namespace VideoDa.AccesoADatos
             {
                 var select = bdContexto.Usuarios.AsQueryable();
                 select = QuerySelect(select, pUsuario).Include(s => s.Rol).AsQueryable();
-                usuarios = await select.ToListAsync();
+               usuarios = await select.ToListAsync();
             }
             return usuarios;
         }

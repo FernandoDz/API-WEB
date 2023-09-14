@@ -19,13 +19,15 @@ namespace VideoDa.WebAPI.Controllers
         {
             return await rolBL.ObtenerTodosAsync();
         }
+
         [HttpGet("{id}")]
-        public async Task <Rol> Get(int id)
+        public async Task<Rol> Get(int id)
         {
             Rol rol = new Rol();
             rol.Id = id;
             return await rolBL.ObtenerPorIdAsync(rol);
         }
+
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] Rol rol)
         {
@@ -34,15 +36,19 @@ namespace VideoDa.WebAPI.Controllers
                 await rolBL.CrearAsync(rol);
                 return Ok();
             }
-            catch(Exception)
+            catch (Exception)
             {
+
                 return BadRequest();
             }
         }
-        [HttpPut]
-        public async Task <ActionResult>Put(int id, [FromBody]Rol rol)
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody] Rol rol)
         {
-            if(rol.Id==id){
+
+            if (rol.Id == id)
+            {
                 await rolBL.ModificarAsync(rol);
                 return Ok();
             }
@@ -50,9 +56,11 @@ namespace VideoDa.WebAPI.Controllers
             {
                 return BadRequest();
             }
+
         }
+
         [HttpDelete("{id}")]
-        public async Task <ActionResult> Delete  (int id)
+        public async Task<ActionResult> Delete(int id)
         {
             try
             {
@@ -60,20 +68,22 @@ namespace VideoDa.WebAPI.Controllers
                 rol.Id = id;
                 await rolBL.EliminarAsync(rol);
                 return Ok();
-
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest();
             }
         }
-        [HttpPost ("Buscar")]
+
+        [HttpPost("Buscar")]
         public async Task<List<Rol>> Buscar([FromBody] object pRol)
         {
+
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strRol = JsonSerializer.Serialize(pRol);
             Rol rol = JsonSerializer.Deserialize<Rol>(strRol, option);
             return await rolBL.BuscarAsync(rol);
+
         }
     }
 }

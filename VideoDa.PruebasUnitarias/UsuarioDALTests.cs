@@ -37,7 +37,7 @@ namespace VideoDa.AccesoADatos.Tests
             var usuario = new Usuario();
             usuario.Id = usuarioInicial.Id;
             usuario.IdRol = usuarioInicial.IdRol;
-            usuario.Nombre = "Fernando";
+            usuario.Nombre = "Fernandooo";
             usuario.Apellido = "Diaz";
             usuario.Login = "FerUser";
             usuario.Estatus = (byte)Estatus_Usuario.ACTIVO;
@@ -67,7 +67,7 @@ namespace VideoDa.AccesoADatos.Tests
         {
             var usuario = new Usuario();
             usuario.IdRol = usuarioInicial.IdRol;
-            usuario.Nombre = "A";
+            usuario.Nombre = "Fernandoo";
             usuario.Apellido = "a";
             usuario.Login = "A";
             usuario.Estatus = (byte)Estatus_Usuario.ACTIVO;
@@ -77,11 +77,11 @@ namespace VideoDa.AccesoADatos.Tests
         }
 
         [TestMethod()]
-        public async Task  T6BuscarIncluirRolesAsyncTest()
+        public async Task T6BuscarIncluirRolesAsyncTest()
         {
             var usuario = new Usuario();
             usuario.IdRol = usuarioInicial.IdRol;
-            usuario.Nombre = "A";
+            usuario.Nombre = "Fernandoo";
             usuario.Apellido = "a";
             usuario.Login = "A";
             usuario.Estatus = (byte)Estatus_Usuario.ACTIVO;

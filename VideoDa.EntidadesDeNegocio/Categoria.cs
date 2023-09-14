@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using NSwag.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,6 +21,7 @@ namespace VideoDa.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
+        [ValidateNever]
         public List<Producto> Producto { get; set; }
     }
 }

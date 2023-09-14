@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace VideoDa.EntidadesDeNegocio
 {
@@ -41,7 +42,7 @@ namespace VideoDa.EntidadesDeNegocio
         [Display(Name = "Fecha registro")]
         public DateTime FechaRegistro { get; set; }
 
-        //propiedad de navegación
+        [ValidateNever]
         public Rol Rol { get; set; }
 
         //propiedades auxiliares

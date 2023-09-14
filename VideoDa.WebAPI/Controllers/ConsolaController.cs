@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using VideoDa.EntidadesDeNegocio;
 using VideoDa.LogicaDeNegocio;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
+
 namespace VideoDa.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ConsolaController : ControllerBase
     {
         
