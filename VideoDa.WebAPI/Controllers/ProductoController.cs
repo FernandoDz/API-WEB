@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using VideoDa.AccesoADatos;
@@ -9,11 +10,13 @@ namespace VideoDa.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductoController : ControllerBase
     {
         private ProductoBL productoBL = new ProductoBL();
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Producto>> Get()
         {
             return await productoBL.ObtenerTodosAsync();

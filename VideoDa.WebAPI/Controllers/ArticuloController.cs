@@ -3,16 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using VideoDa.EntidadesDeNegocio;
 using VideoDa.LogicaDeNegocio;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VideoDa.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ArticuloController : ControllerBase
     {
 
         private ArticuloBL articuloBL = new ArticuloBL();
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Articulo>> Get()
         {
             return await articuloBL.ObtenerTodosAsync();

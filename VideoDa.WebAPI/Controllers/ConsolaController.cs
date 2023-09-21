@@ -15,6 +15,7 @@ namespace VideoDa.WebAPI.Controllers
         
         private ConsolaBL consolaBL = new ConsolaBL();
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Consola>> Get(){
             return await consolaBL.ObtenerTodosAsync();
         

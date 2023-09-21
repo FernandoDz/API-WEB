@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using VideoDa.AccesoADatos;
@@ -9,12 +10,13 @@ namespace VideoDa.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CategoriaController : ControllerBase
     {
         private CategoriaBL categoriaBL = new CategoriaBL();
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Categoria>> Get()
         {
             return await categoriaBL.ObtenerTodosAsync();
