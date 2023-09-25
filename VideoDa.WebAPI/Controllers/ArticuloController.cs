@@ -23,6 +23,7 @@ namespace VideoDa.WebAPI.Controllers
 
         }
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<Articulo> Get(int id)
         {
             Articulo articulo = new Articulo();

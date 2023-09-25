@@ -22,6 +22,7 @@ namespace VideoDa.WebAPI.Controllers
         
         }
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<Consola> Get(int id) {
             Consola consola = new Consola();
             consola.Id = id;
