@@ -23,6 +23,7 @@ namespace VideoDa.WebAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<Categoria> Get(int id)
         {
             Categoria categoria = new Categoria();

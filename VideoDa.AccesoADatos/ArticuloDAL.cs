@@ -30,7 +30,7 @@ namespace VideoDa.AccesoADatos
                 articulo.IdConsola = pArticulo.IdConsola;
                 articulo.Nombre = pArticulo.Nombre;
                 articulo.Descripcion = pArticulo.Descripcion;
-                articulo.Cantidad = pArticulo.Cantidad;
+                //articulo.Cantidad = pArticulo.Cantidad;
                 articulo.Imagen = pArticulo.Imagen;
                 articulo.Precio = pArticulo.Precio;
                 bdContexto.Update(articulo);
@@ -86,8 +86,8 @@ namespace VideoDa.AccesoADatos
                 pQuery = pQuery.Where(s => s.Nombre.Contains(pArticulo.Nombre));
             if (!string.IsNullOrWhiteSpace(pArticulo.Descripcion))
                 pQuery = pQuery.Where(s => s.Descripcion.Contains(pArticulo.Descripcion));
-            if (!string.IsNullOrWhiteSpace(pArticulo.Cantidad))
-                pQuery = pQuery.Where(s => s.Cantidad.Contains(pArticulo.Cantidad));
+            //if (!string.IsNullOrWhiteSpace(pArticulo.Cantidad))
+            //    pQuery = pQuery.Where(s => s.Cantidad.Contains(pArticulo.Cantidad));
             if (!string.IsNullOrWhiteSpace(pArticulo.Imagen))
                 pQuery = pQuery.Where(s => s.Imagen.Contains(pArticulo.Imagen));
             pQuery = pQuery.OrderByDescending(s => s.Id).AsQueryable();
