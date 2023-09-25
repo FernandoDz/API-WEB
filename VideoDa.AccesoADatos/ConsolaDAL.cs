@@ -31,7 +31,7 @@ namespace VideoDa.AccesoADatos
                 consola.Descripcion = pConsola.Descripcion;
                 consola.Serie = pConsola.Serie;
                 consola.Fabricante = pConsola.Fabricante;
-                consola.Fabricante = pConsola.Fabricante;
+                consola.Precio = pConsola.Precio;
                 consola.Imagen = pConsola.Imagen;
                 consola.AñodeLanzamiento = pConsola.AñodeLanzamiento;
                 bdContexto.Update(consola);
@@ -85,6 +85,8 @@ namespace VideoDa.AccesoADatos
                 pQuery = pQuery.Where(s => s.Serie.Contains(pConsola.Serie));
             if (!string.IsNullOrWhiteSpace(pConsola.Fabricante))
                 pQuery = pQuery.Where(s => s.Fabricante.Contains(pConsola.Fabricante));
+            if (!string.IsNullOrWhiteSpace(pConsola.Precio))
+                pQuery = pQuery.Where(s => s.Precio.Contains(pConsola.Precio));
             if (!string.IsNullOrWhiteSpace(pConsola.AñodeLanzamiento))
                 pQuery = pQuery.Where(s => s.AñodeLanzamiento.Contains(pConsola.AñodeLanzamiento));
 

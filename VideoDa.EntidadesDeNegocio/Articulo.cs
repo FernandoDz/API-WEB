@@ -34,6 +34,12 @@ namespace VideoDa.EntidadesDeNegocio
         [StringLength(500, ErrorMessage = "Máximo 500 caracteres")]
         public string Imagen { get; set; }
 
+        [Required(ErrorMessage = "La Imagen es obligatoria")]
+        [StringLength(500, ErrorMessage = "Máximo 500 caracteres")]
+        public string Precio { get; set; }
+
+
+
         [NotMapped]
         public int Top_Aux { get; set; }
 

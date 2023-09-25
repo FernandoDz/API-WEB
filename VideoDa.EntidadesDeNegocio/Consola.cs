@@ -29,8 +29,14 @@ namespace VideoDa.EntidadesDeNegocio
         [Required(ErrorMessage = "El fabricante es obligatorio")]
         [StringLength(40, ErrorMessage = "Máximo 40 caracteres")]
         public string Fabricante { get; set; }
-        
-             [Required(ErrorMessage = "Año de Lanzamiento es obligatorio")]
+
+        [Required(ErrorMessage = "El fabricante es obligatorio")]
+        [StringLength(100, ErrorMessage = "Máximo 100 caracteres")]
+        public string Precio { get; set; }
+
+
+
+        [Required(ErrorMessage = "Año de Lanzamiento es obligatorio")]
         [StringLength(500, ErrorMessage = "Máximo 500 caracteres")]
         public string Imagen { get; set; }
 

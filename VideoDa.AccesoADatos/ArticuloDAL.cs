@@ -32,6 +32,7 @@ namespace VideoDa.AccesoADatos
                 articulo.Descripcion = pArticulo.Descripcion;
                 articulo.Cantidad = pArticulo.Cantidad;
                 articulo.Imagen = pArticulo.Imagen;
+                articulo.Precio = pArticulo.Precio;
                 bdContexto.Update(articulo);
                 result = await bdContexto.SaveChangesAsync();
             }
@@ -77,6 +78,9 @@ namespace VideoDa.AccesoADatos
 
             if (pArticulo.IdConsola > 0)
                 pQuery = pQuery.Where(s => s.IdConsola == pArticulo.IdConsola);
+
+            if (!string.IsNullOrWhiteSpace(pArticulo.Precio))
+                pQuery = pQuery.Where(s => s.Precio.Contains(pArticulo.Precio));
 
             if (!string.IsNullOrWhiteSpace(pArticulo.Nombre))
                 pQuery = pQuery.Where(s => s.Nombre.Contains(pArticulo.Nombre));
