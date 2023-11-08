@@ -23,6 +23,7 @@ namespace VideoDa.WebAPI.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Usuario>> Get()
         {
             return await usuarioBL.ObtenerTodosAsync();

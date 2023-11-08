@@ -11,7 +11,7 @@ namespace VideoDa.AccesoADatos.Tests
     [TestClass()]
     public class ArticuloDALTests
     {
-        private static Articulo articuloInicial = new Articulo { Id = 2, IdConsola = 2 };
+        private static Articulo articuloInicial = new Articulo { Id = 5, IdConsola = 2 };
         [TestMethod()]
         public async Task T1CrearAsyncTest()
         {

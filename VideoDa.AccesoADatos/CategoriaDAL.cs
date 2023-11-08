@@ -84,14 +84,14 @@ namespace VideoDa.AccesoADatos
 
         public static async Task<List<Categoria>> BuscarAsync(Categoria pCategoria)
         {
-            var categorias = new List<Categoria>();
+            var Categorias = new List<Categoria>();
             using (var bdContexto = new BDContexto())
             {
                 var select = bdContexto.Categorias.AsQueryable();
                 select = QuerySelect(select, pCategoria);
-                categorias = await select.ToListAsync();
+                Categorias = await select.ToListAsync();
             }
-            return categorias;
+            return Categorias;
         }
     }
 }
