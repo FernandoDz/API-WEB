@@ -16,6 +16,8 @@ namespace VideoDa.LogicaDeNegocio
         {
             return await CategoriaDAL.CrearAsync(pCategoria);
         }
+
+
         public async Task<int> ModificarAsync(Categoria pCategoria)
         {
             return await CategoriaDAL.ModificarAsync(pCategoria);

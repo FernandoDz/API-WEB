@@ -20,7 +20,7 @@ namespace VideoDa.AccesoADatos
             }
             return result;
         }
-
+        
         public static async Task<int> ModificarAsync(Categoria pCategoria)
         {
             int result = 0;
