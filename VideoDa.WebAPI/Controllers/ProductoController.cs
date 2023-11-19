@@ -75,12 +75,14 @@ namespace VideoDa.WebAPI.Controllers
             }
         }
         [HttpPost("Buscar")]
-        public async Task<List<Producto>> Buscar([FromBody] Producto pProducto)
+        public async Task<List<Producto>> Buscar([FromBody] object pProducto)
         {
+
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strProducto = JsonSerializer.Serialize(pProducto);
             Producto producto = JsonSerializer.Deserialize<Producto>(strProducto, option);
-            return await productoBL.BuscarAsync(producto);
+            var productos = await productoBL.BuscarAsync(producto);
+            return productos;
         }
     }
 }

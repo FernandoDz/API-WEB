@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using VideoDa.AccesoADatos;
 using VideoDa.EntidadesDeNegocio;
 using VideoDa.LogicaDeNegocio;
 
@@ -82,8 +83,8 @@ namespace VideoDa.WebAPI.Controllers
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strRol = JsonSerializer.Serialize(pRol);
             Rol rol = JsonSerializer.Deserialize<Rol>(strRol, option);
-            return await rolBL.BuscarAsync(rol);
-
+            var roles = await rolBL.BuscarAsync(rol);
+            return roles;
         }
     }
 }

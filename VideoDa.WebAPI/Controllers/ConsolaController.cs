@@ -4,6 +4,7 @@ using VideoDa.EntidadesDeNegocio;
 using VideoDa.LogicaDeNegocio;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
+using VideoDa.AccesoADatos;
 
 namespace VideoDa.WebAPI.Controllers
 {
@@ -75,10 +76,12 @@ namespace VideoDa.WebAPI.Controllers
         [HttpPost("Buscar")]
         public async Task<List<Consola>> Buscar([FromBody] object pConsola)
         {
+
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            string strConsola = JsonSerializer.Serialize(pConsola);
+            string strConsola= JsonSerializer.Serialize(pConsola);
             Consola consola = JsonSerializer.Deserialize<Consola>(strConsola, option);
-            return await consolaBL.BuscarAsync(consola);
+            var consolas = await consolaBL.BuscarAsync(consola);
+            return consolas;
         }
 
     }
